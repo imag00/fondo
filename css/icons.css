@@ -1,0 +1,34 @@
+.icon {
+    position: absolute;
+    z-index: 100;
+    width: 70px;
+    height: 87px;
+}
+
+.icon:hover {
+    background-color: #008cff17;
+
+}
+
+#bin {
+    top: 5px;
+    left: 3px;
+}
+
+#vscode {
+    top: 100px;
+    width: 75px;
+    left: 4px;
+}
+
+#chrome {
+    top: 200px; 
+    left: 3px;
+}
+
+#netbeans {
+    top: 296px;
+    width: 73px;
+    height: 90px;
+    left: 4px;
+}

@@ -1,0 +1,14 @@
+* {
+    margin: 0px 0px 0px 0px;
+    user-select: none;
+}
+
+#frame {
+    position: relative;
+    width: 1440px;
+    height: 900px;
+}
+
+img, text {
+    pointer-events: none;
+}
