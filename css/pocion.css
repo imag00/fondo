@@ -1,0 +1,12 @@
+#pocion {
+    top: 65%;
+    transform: rotate(-35deg);
+    left: 81%;
+    width: 200px;
+    height: 280px;
+    transition: width 0.7s;
+}
+
+#pocion:hover {
+    width: 110px;
+}

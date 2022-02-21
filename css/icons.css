@@ -1,13 +1,11 @@
-.icon {
-    position: absolute;
-    z-index: 100;
+.icon {    
     width: 70px;
     height: 87px;
+    z-index: 500;
 }
 
 .icon:hover {
     background-color: #008cff17;
-
 }
 
 #bin {

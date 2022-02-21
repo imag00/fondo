@@ -6,16 +6,29 @@
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/icons.css">
-    <script src="main.js"></script>
+    <script src="js/icons.js"></script>
+    <link rel="stylesheet" href="css/pocion.css">
+    <link rel="stylesheet" href="css/window.css">
+    
 </head>
-<body>
+<body>  
     <div id="frame">
-        <img src="img/main.png"">
+        <img src="img/main.png">
 
-        <div class="icon" id="bin" ondblclick="openYTLink('dQw4w9WgXcQ')"></div>
-        <div class="icon" id="vscode" ondblclick="openYTLink('wpV-gGA4PSk')"></div>
-        <div class="icon" id="chrome" ondblclick="openYTLink('3Jd3uELOLrA')"></div>
-        <div class="icon" id="netbeans" ondblclick="openYTLink('cvh0nX08nRw')"></div>
+        <div id="yt_window">
+            <div id="bar"></div>
+            <video id="yt" controls autoplay>
+                <source src="vid/rickroll.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="icon" id="bin" ondblclick="openYTLink(0)"></div>
+        <div class="icon" id="vscode" ondblclick="openYTLink(1)"></div>
+        <div class="icon" id="chrome" ondblclick="openYTLink(2)"></div>
+        <div class="icon" id="netbeans" ondblclick="openYTLink(3)"></div>
+
+        <img id="jesus" src="img/jesus.gif">
+        <img id="pocion" src="img/pocion.png">
     </div>
 </body>
 </html>

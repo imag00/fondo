@@ -1,6 +1,7 @@
 * {
+    position: absolute;
     margin: 0px 0px 0px 0px;
-    user-select: none;
+    /*user-select: none;*/
 }
 
 #frame {
@@ -9,6 +10,8 @@
     height: 900px;
 }
 
+/*
 img, text {
     pointer-events: none;
 }
+*/
