@@ -19,14 +19,17 @@ function deselectAllIcons() {
     }
 }
 
-let videos = ["vid/rickroll.mp4", "vid/rickroll2.mp4", "vid/rickroll3.mp4", "vid/rickroll4.mp4"]
+var ytWindow = document.getElementsByClassName("yt_window");
+let videos = ["kcnJR7C1Ku8", "0n2i7xMtHFw", "qSZj4ITI9ow", "SbCxf-WorNE"]
 
-function openYTLink(link) {
-    document.getElementById("yt_window").style.visibility = 'visible';
-    var video = document.getElementById("yt");
-    video.currentTime = 0;
-    video.setAttribute('src', videos[link]);
-    video.play();
+function openYTLink(n) {
+    ytWindow[n].style.visibility = 'visible';
 
-    //window.open('https://youtu.be/' + link);
+    var video = ytWindow[n].querySelector('#yt');
+
+    console.log(video.getAttribute("src") == "");
+
+    if (video.getAttribute("src") == "") {
+        video.setAttribute("src", "https://www.youtube.com/embed/" + videos[n] + "?&autoplay=1");
+    }
 }
