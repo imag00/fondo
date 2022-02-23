@@ -1,6 +1,6 @@
 .yt_window {
     visibility: hidden;
-    position: fixed;
+    position: absolute;
     width: 700px;
     height: 450px;
 
@@ -88,6 +88,7 @@
     top: 35px;
     width: 100%;
     height: calc(100% - 35px);
+    z-index: -1;
 
     background-color: rgb(0, 0, 0);
 }

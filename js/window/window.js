@@ -12,6 +12,7 @@ function openYTLink(n) {
 
     if (video.getAttribute("src") == "") {
         video.setAttribute("src", videos[n]);
+        video.volume = 0.07;
     }
 }
 
@@ -43,15 +44,22 @@ function max_window(window) {
 
 function min_window(window) {
 
-    var maxButton = window.querySelector('#max_button');
+    var windowDimensions = window.querySelector('#min_button');
 
-    window.style.width = maxButton.getAttribute("width");
-    window.style.height = maxButton.getAttribute("height");
-    window.style.top = maxButton.getAttribute("top");
-    window.style.left = maxButton.getAttribute("left");
+    window.style.width = windowDimensions.getAttribute("width");
+    window.style.height = windowDimensions.getAttribute("height");
+    window.style.top = windowDimensions.getAttribute("top");
+    window.style.left = windowDimensions.getAttribute("left");
 
     window.style.borderStyle = 'solid';
 
     window.querySelector('#max_button').style.visibility = 'inherit';
     window.querySelector('#min_button').style.visibility = 'hidden';
+}
+
+function focus_window(window) {
+    if (window.style.zIndex == index - 1) return;
+
+    window.style.zIndex = index.toString();
+    index++;
 }
