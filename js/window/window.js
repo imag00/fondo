@@ -1,3 +1,21 @@
+var index = 1000;
+
+var ytWindow = document.getElementsByClassName("yt_window");
+let videos = ["vid/rickroll.mp4", "vid/rickroll2.mp4", "vid/rickroll3.mp4", "vid/rickroll4.mp4"]
+
+function openYTLink(n) {
+    ytWindow[n].style.visibility = 'visible';
+    ytWindow[n].style.zIndex = index.toString();
+    index++;
+
+    var video = ytWindow[n].querySelector('#yt');
+
+    if (video.getAttribute("src") == "") {
+        video.setAttribute("src", videos[n]);
+    }
+}
+
+
 function close_window(window) {
     window.style.visibility = 'hidden';
 
@@ -9,8 +27,6 @@ function hide_window(window) {
 }
 
 function max_window(window) {
-
-
     window.style.width = '100%';
     window.style.height = '100%';
     window.style.top = '0%';

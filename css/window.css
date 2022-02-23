@@ -1,5 +1,4 @@
 .yt_window {
-    z-index: 1000;
     visibility: hidden;
     position: fixed;
     width: 700px;
