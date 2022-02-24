@@ -18,4 +18,3 @@ function deselectAllIcons() {
         icon.style.border = 'none';
     }
 }
-
