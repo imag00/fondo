@@ -27,6 +27,13 @@ function hide_window(window) {
     window.style.visibility = 'hidden';
 }
 
+function max_min_window_bar(window) {
+    if(window.querySelector('#max_button').style.visibility == 'hidden')
+        min_window(window);
+    else
+        max_window(window);
+}
+
 function max_window(window) {
     window.style.width = '100%';
     window.style.height = '100%';

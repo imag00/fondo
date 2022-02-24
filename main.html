@@ -17,8 +17,8 @@
     <div id="frame">
         <img src="img/main.png">
 
-        <div class="yt_window" onmousedown="focus_window(this)">
-            <div id="bar">
+        <div class="yt_window" onmousedown="focus_window(this)" >
+            <div id="bar" ondblclick="max_min_window_bar(this.parentNode)">
                 <span>Papelera de reciclaje</span>
                 <div id="close_button" onclick="close_window(this.parentNode.parentNode)"></div>
                 <div id="max_button" onclick="max_window(this.parentNode.parentNode)"></div>
