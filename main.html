@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="css/pocion.css">
     <link rel="stylesheet" href="css/window.css">
     <script src="js/window/window.js"></script>
-    <script src="js/window/windowMove.js"></script>
+    <script src="js/window/drag.js"></script>
     
 </head>
-<body>  
+<body onmousedown="mouse(true)" onmouseup="mouse(false)" onmousemove="track_mouse(event)">  
     <div id="frame">
         <img src="img/main.png">
 
-        <div class="yt_window" onmousedown="focus_window(this)" >
-            <div id="bar" ondblclick="max_min_window_bar(this.parentNode)">
+        <div class="yt_window" onmousedown="focus_window(this)">
+            <div id="bar" onmousedown="select_drag_window(event, this.parentNode)">
                 <span>Papelera de reciclaje</span>
                 <div id="close_button" onclick="close_window(this.parentNode.parentNode)"></div>
                 <div id="max_button" onclick="max_window(this.parentNode.parentNode)"></div>
