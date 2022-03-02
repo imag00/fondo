@@ -17,13 +17,12 @@ body {
     height: 900px;
 }
 
-/*
-img, text {
-    pointer-events: none;
-}
-*/
-
 .unselectable {
     user-select: none;
     pointer-events: none;
+}
+
+::selection {
+    color: transparent;
+    background: none;
 }

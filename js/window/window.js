@@ -1,4 +1,4 @@
-var index = 1000;
+var index = 10000;
 
 var ytWindow = document.getElementsByClassName("yt_window");
 let videos = ["vid/rickroll.mp4", "vid/rickroll2.mp4", "vid/rickroll3.mp4", "vid/rickroll4.mp4"]

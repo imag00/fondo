@@ -8,7 +8,21 @@ function mouse(e, x) {
         selec.forEach(function (sel) {
             sel.removeAttribute("selected");
 
-            if (parseInt(sel.style.top) < 10 && sel.className == "yt_window") max_window(sel);
+            if (sel.className != "yt_window") return;           
+
+            
+            if (parseInt(sel.style.top) < 10) max_window(sel);
+
+            var windowDimensions = sel.querySelector('#min_button');
+
+            console.log(parseInt(windowDimensions.getAttribute("top")))
+            
+            if (parseInt(sel.style.top) > 10) {
+                windowDimensions.setAttribute("width", sel.style.width);
+                windowDimensions.setAttribute("height", sel.style.height);
+                windowDimensions.setAttribute("top", sel.style.top);
+                windowDimensions.setAttribute("left", sel.style.left);
+            }
         });
         return;
     }
@@ -23,23 +37,16 @@ function track_mouse(e) {
     document.querySelectorAll('[selected]').forEach(selected => drag(e, selected));
 }
 
-function select_drag_window(e, window) {
+function select_drag(e, window) {
     var selected = document.createAttribute("selected");
     window.setAttributeNode(selected);
 }
 
 function drag(e, obj) {
-    var newPos = [
+    let newPos = [
         obj.offsetLeft + (e.clientX - initialMousePos[0]),
         obj.offsetTop + (e.clientY - initialMousePos[1])
-    ];
-    /*
-    if (obj.clientWidth == document.body.clientWidth) {
-        obj.style.left = e.clientX - (obj.clientWidth / 2) + "px";
-        obj.style.top = e.clientY + "px";
-        min_window(obj);        
-    }
-    */
+    ];     
 
     obj.style.left = newPos[0] + "px";
     obj.style.top = newPos[1] + "px";
@@ -56,13 +63,17 @@ function drag(e, obj) {
 
     initialMousePos = [e.clientX, e.clientY];
 
-    
+    if (obj.className == "yt_window") drag_window(e, obj, newPos);
+}
 
-    if (obj.className != "yt_window") return;
+function drag_window(e, obj, newPos) {
     var windowDimensions = obj.querySelector('#min_button');
 
-    windowDimensions.setAttribute("width", obj.style.width);
-    windowDimensions.setAttribute("height", obj.style.height);
-    windowDimensions.setAttribute("top", newPos[1]);
-    windowDimensions.setAttribute("left", newPos[0]);
+    if (obj.clientWidth == document.body.clientWidth) {
+        windowDimensions.setAttribute("left", e.clientX / 2 + "px");
+        windowDimensions.setAttribute("top", e.clientY + "px");        
+        min_window(obj);
+    }
+
+    if (newPos[1] <= 10) obj.style.top = "0px";
 }

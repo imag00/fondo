@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Fondo de pantalla DAM</title>
@@ -10,72 +11,86 @@
     <link rel="stylesheet" href="css/pocion.css">
     <link rel="stylesheet" href="css/window.css">
     <script src="js/window/window.js"></script>
-    <script src="js/window/drag.js"></script>
-    
+    <script src="js/drag.js"></script>
+
 </head>
-<body onmousedown="mouse(event, true)" onmouseup="mouse(event, false)" onmousemove="track_mouse(event)">  
+
+<body onmousedown="mouse(event, true)" onmouseup="mouse(event, false)" onmousemove="track_mouse(event)">
     <div id="frame">
-        <img src="img/main.png">
+        <img src="img/main.png" class="unselectable">
 
         <div class="yt_window" onmousedown="focus_window(this)">
-            <div id="bar" onmousedown="select_drag_window(event, this.parentNode)" ondblclick="max_min_window_bar(this.parentNode)">
+            <div id="bar">
                 <span>Papelera de reciclaje</span>
+                <div id="bar_drag" onmousedown="select_drag(event, this.parentNode.parentNode)"
+                    ondblclick="max_min_window_bar(this.parentNode.parentNode)"></div>
                 <div id="close_button" onclick="close_window(this.parentNode.parentNode)"></div>
                 <div id="max_button" onclick="max_window(this.parentNode.parentNode)"></div>
-                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)" onclick="min_window(this.parentNode.parentNode)"></div>
+                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)"
+                    onclick="min_window(this.parentNode.parentNode)"></div>
                 <div id="hide_button" onclick="hide_window(this.parentNode.parentNode)"></div>
             </div>
             <video id="yt" src="" autoplay></video>
         </div>
 
         <div class="yt_window" onmousedown="focus_window(this)">
-            <div id="bar" onmousedown="select_drag_window(event, this.parentNode)" ondblclick="max_min_window_bar(this.parentNode)">
+            <div id="bar">
                 <span>Visual Studio Code</span>
+                <div id="bar_drag" onmousedown="select_drag(event, this.parentNode.parentNode)"
+                    ondblclick="max_min_window_bar(this.parentNode.parentNode)"></div>
                 <div id="close_button" onclick="close_window(this.parentNode.parentNode)"></div>
                 <div id="max_button" onclick="max_window(this.parentNode.parentNode)"></div>
-                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)" onclick="min_window(this.parentNode.parentNode)"></div>
+                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)"
+                    onclick="min_window(this.parentNode.parentNode)"></div>
                 <div id="hide_button" onclick="hide_window(this.parentNode.parentNode)"></div>
             </div>
             <video id="yt" src="" autoplay></video>
         </div>
 
         <div class="yt_window" onmousedown="focus_window(this)">
-            <div id="bar" onmousedown="select_drag_window(event, this.parentNode)" ondblclick="max_min_window_bar(this.parentNode)">
+            <div id="bar">
                 <span>Google Chrome</span>
+                <div id="bar_drag" onmousedown="select_drag(event, this.parentNode.parentNode)"
+                    ondblclick="max_min_window_bar(this.parentNode.parentNode)"></div>
                 <div id="close_button" onclick="close_window(this.parentNode.parentNode)"></div>
                 <div id="max_button" onclick="max_window(this.parentNode.parentNode)"></div>
-                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)" onclick="min_window(this.parentNode.parentNode)"></div>
+                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)"
+                    onclick="min_window(this.parentNode.parentNode)"></div>
                 <div id="hide_button" onclick="hide_window(this.parentNode.parentNode)"></div>
             </div>
             <video id="yt" src="" autoplay></video>
         </div>
 
         <div class="yt_window" onmousedown="focus_window(this)">
-            <div id="bar" onmousedown="select_drag_window(event, this.parentNode)" ondblclick="max_min_window_bar(this.parentNode)">
+            <div id="bar">
                 <span>Apache Netbeans IDE 12.5</span>
+                <div id="bar_drag" onmousedown="select_drag(event, this.parentNode.parentNode)"
+                    ondblclick="max_min_window_bar(this.parentNode.parentNode)"></div>
                 <div id="close_button" onclick="close_window(this.parentNode.parentNode)"></div>
                 <div id="max_button" onclick="max_window(this.parentNode.parentNode)"></div>
-                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)" onclick="min_window(this.parentNode.parentNode)"></div>
+                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)"
+                    onclick="min_window(this.parentNode.parentNode)"></div>
                 <div id="hide_button" onclick="hide_window(this.parentNode.parentNode)"></div>
             </div>
             <video id="yt" src="" autoplay></video>
         </div>
 
-        <div class="icon" id="bin" onmousedown="select_drag_window(event, this)" ondblclick="openYTLink(0)">
+        <div class="icon" id="bin" onmousedown="select_drag(event, this)" ondblclick="openYTLink(0)">
             <img class="unselectable" src="img/iconos/bin.png">
         </div>
-        <div class="icon" id="vscode" onmousedown="select_drag_window(event, this)" ondblclick="openYTLink(1)">
+        <div class="icon" id="vscode" onmousedown="select_drag(event, this)" ondblclick="openYTLink(1)">
             <img class="unselectable" src="img/iconos/vscode.png">
         </div>
-        <div class="icon" id="chrome" onmousedown="select_drag_window(event, this)" ondblclick="openYTLink(2)">
+        <div class="icon" id="chrome" onmousedown="select_drag(event, this)" ondblclick="openYTLink(2)">
             <img class="unselectable" src="img/iconos/chrome.png">
         </div>
-        <div class="icon" id="netbeans" onmousedown="select_drag_window(event, this)" ondblclick="openYTLink(3)">
-            <img class="unselectable" src="img/iconos/netbeans.png">        
+        <div class="icon" id="netbeans" onmousedown="select_drag(event, this)" ondblclick="openYTLink(3)">
+            <img class="unselectable" src="img/iconos/netbeans.png">
         </div>
 
-        <img id="jesus" src="img/jesus.gif">
-        <img id="pocion" src="img/pocion.png">
+        <img id="jesus" class="unselectable" src="img/jesus.gif">
+        <img id="pocion" src="img/pocion.png" ondragstart="return false;">
     </div>
 </body>
+
 </html>
