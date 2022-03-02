@@ -1,7 +1,8 @@
 * {
     position: absolute;
     margin: 0px 0px 0px 0px;
-    user-select: none;
+    /*user-select: none;*/
+    overflow: hidden;
 }
 
 #frame {
@@ -10,7 +11,13 @@
     height: 900px;
 }
 
-
+/*
 img, text {
+    pointer-events: none;
+}
+*/
+
+.unselectable {
+    user-select: none;
     pointer-events: none;
 }

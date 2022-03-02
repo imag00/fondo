@@ -15,6 +15,6 @@ function deselectAllIcons() {
 
     for (var icon of icons) {
         icon.style.backgroundColor = '';
-        icon.style.border = 'none';
+        icon.style.border = '1px solid transparent';
     }
 }

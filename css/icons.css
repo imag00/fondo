@@ -2,6 +2,7 @@
     width: 70px;
     height: 87px;
     z-index: 500;
+    border: 1px solid transparent;
 }
 
 .icon:hover {
