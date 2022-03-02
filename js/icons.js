@@ -6,7 +6,7 @@ document.addEventListener("click", function (evnt) {
 function iconClick(element) {
     if (element.className != "icon") return;
 
-    element.style.backgroundColor = '#008cff17';
+    element.style.backgroundColor = '#008cff27';
     element.style.border = '1px solid #008cff2c';
 }
 

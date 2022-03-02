@@ -5,10 +5,10 @@ var selected;
 function mouse(e, x) {
     if (!x) {
         var selec = document.querySelectorAll('[selected]');
-        selec.forEach(function(sel) {
+        selec.forEach(function (sel) {
             sel.removeAttribute("selected");
 
-            if (parseInt(sel.style.top) < 10 && element.className == "yt_window") max_window(sel);
+            if (parseInt(sel.style.top) < 10 && sel.className == "yt_window") max_window(sel);
         });
         return;
     }
@@ -20,7 +20,7 @@ function mouse(e, x) {
 function track_mouse(e) {
     if (!selected) return;
 
-    document.querySelectorAll('[selected]').forEach(selected => drag_window(e, selected));
+    document.querySelectorAll('[selected]').forEach(selected => drag(e, selected));
 }
 
 function select_drag_window(e, window) {
@@ -28,49 +28,41 @@ function select_drag_window(e, window) {
     window.setAttributeNode(selected);
 }
 
-function drag_window(e, window) {
-    var moveHorizontal = true;
-    var moveVertical = true;
-    if (window.clientWidth == document.body.clientWidth) {
-        min_window(window);
-        window.style.left = e.clientX - (window.clientWidth / 2) + "px";
-        window.style.top = e.clientY  + "px";
+function drag(e, obj) {
+    var newPos = [
+        obj.offsetLeft + (e.clientX - initialMousePos[0]),
+        obj.offsetTop + (e.clientY - initialMousePos[1])
+    ];
+    /*
+    if (obj.clientWidth == document.body.clientWidth) {
+        obj.style.left = e.clientX - (obj.clientWidth / 2) + "px";
+        obj.style.top = e.clientY + "px";
+        min_window(obj);        
     }
-    if (parseInt(window.style.left) <= 0 && (e.clientX - initialMousePos[0]) < 0) {
-        window.style.left = "0px";
-        moveHorizontal = false;
-    }
+    */
 
-    if (parseInt(window.style.left) + window.clientWidth >= document.body.clientWidth  && (e.clientX - initialMousePos[0])> 0) {
-        window.style.left = document.body.clientWidth - window.clientWidth + "px";
-        moveHorizontal = false;
-    }
+    obj.style.left = newPos[0] + "px";
+    obj.style.top = newPos[1] + "px";
 
-    if (parseInt(window.style.top) <= 0 && (e.clientY - initialMousePos[1]) < 0) {
-        window.style.top = "0px";
-        
-        moveVertical = false;
-    }
+    if (newPos[0] <= 0) obj.style.left = "0px";
 
-    if (parseInt(window.style.top) + window.clientHeight >= document.body.clientHeight && (e.clientY - initialMousePos[1]) > 0) {
-        window.style.top = document.body.clientHeight - window.clientHeight + "px";;
-        moveVertical = false;
-    }
+    if (newPos[0] + obj.clientWidth >= document.body.clientWidth)
+        obj.style.left = document.body.clientWidth - obj.clientWidth + "px";
 
-    var newLeft = window.offsetLeft + (e.clientX - initialMousePos[0]);
-    
-    if (moveHorizontal) window.style.left = window.offsetLeft + (e.clientX - initialMousePos[0]) + "px";
-    if (moveVertical) window.style.top = window.offsetTop + (e.clientY - initialMousePos[1]) + "px";
+    if (newPos[1] <= 0) obj.style.top = "0px";
+
+    if (newPos[1] + obj.clientHeight >= document.body.clientHeight)
+        obj.style.top = document.body.clientHeight - obj.clientHeight + "px";
 
     initialMousePos = [e.clientX, e.clientY];
 
-    if (element.className == "icon") return;
-    var windowDimensions = window.querySelector('#min_button');
-
-    windowDimensions.setAttribute("width", window.style.width);
-    windowDimensions.setAttribute("height", window.style.height);
-    windowDimensions.setAttribute("top", window.style.top);
-    windowDimensions.setAttribute("left", window.style.left);
-
     
+
+    if (obj.className != "yt_window") return;
+    var windowDimensions = obj.querySelector('#min_button');
+
+    windowDimensions.setAttribute("width", obj.style.width);
+    windowDimensions.setAttribute("height", obj.style.height);
+    windowDimensions.setAttribute("top", newPos[1]);
+    windowDimensions.setAttribute("left", newPos[0]);
 }

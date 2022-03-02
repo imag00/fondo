@@ -5,6 +5,12 @@
     overflow: hidden;
 }
 
+
+body {
+    width: 1440px;
+    height: 900px;
+}
+
 #frame {
     position: relative;
     width: 1440px;
