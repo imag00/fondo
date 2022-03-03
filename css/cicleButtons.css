@@ -1,0 +1,38 @@
+.circle_button {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;    
+    top: 13px;
+}
+
+.circle_button a:hover {
+    background-color: rgba(255, 255, 255, 0.384);
+    box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.301);
+}
+
+.circle_button a {
+    border-radius: 50%;  
+    width: 99%;
+    height: 99%;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+#x_button {
+    left: 24px;
+}
+
+#photo_button {
+    left: 969px;
+}
+
+#options_button {
+    left: 1083px;
+}
+
+#left_button {
+    left: 1196px;
+}
+
+#right_button {
+    left: 1310px;
+}

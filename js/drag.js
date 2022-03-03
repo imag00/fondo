@@ -8,15 +8,13 @@ function mouse(e, x) {
         selec.forEach(function (sel) {
             sel.removeAttribute("selected");
 
-            if (sel.className != "yt_window") return;           
+            if (sel.className != "yt_window") return;
 
-            
-            if (parseInt(sel.style.top) < 10) max_window(sel);
+
+            if (parseInt(sel.style.top) == 0) max_window(sel);
 
             var windowDimensions = sel.querySelector('#min_button');
 
-            console.log(parseInt(windowDimensions.getAttribute("top")))
-            
             if (parseInt(sel.style.top) > 10) {
                 windowDimensions.setAttribute("width", sel.style.width);
                 windowDimensions.setAttribute("height", sel.style.height);
@@ -46,7 +44,7 @@ function drag(e, obj) {
     let newPos = [
         obj.offsetLeft + (e.clientX - initialMousePos[0]),
         obj.offsetTop + (e.clientY - initialMousePos[1])
-    ];     
+    ];
 
     obj.style.left = newPos[0] + "px";
     obj.style.top = newPos[1] + "px";
@@ -61,9 +59,11 @@ function drag(e, obj) {
     if (newPos[1] + obj.clientHeight >= document.body.clientHeight)
         obj.style.top = document.body.clientHeight - obj.clientHeight + "px";
 
+    if (obj.className == "yt_window") drag_window(e, obj, newPos);
+
     initialMousePos = [e.clientX, e.clientY];
 
-    if (obj.className == "yt_window") drag_window(e, obj, newPos);
+
 }
 
 function drag_window(e, obj, newPos) {
@@ -71,9 +71,11 @@ function drag_window(e, obj, newPos) {
 
     if (obj.clientWidth == document.body.clientWidth) {
         windowDimensions.setAttribute("left", e.clientX / 2 + "px");
-        windowDimensions.setAttribute("top", e.clientY + "px");        
+        windowDimensions.setAttribute("top", e.clientY + "px");
         min_window(obj);
     }
 
-    if (newPos[1] <= 10) obj.style.top = "0px";
+    console.log(e.clientY - initialMousePos[1]);
+
+    if (newPos[1] <= 10 && (e.clientY - initialMousePos[1]) < 0) obj.style.top = "0px";
 }
