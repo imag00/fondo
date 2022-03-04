@@ -1,12 +1,11 @@
-var index = 10000;
+var windowIndex = 10000;
 
 var ytWindow = document.getElementsByClassName("yt_window");
-let videos = ["vid/rickroll.mp4", "vid/rickroll2.mp4", "vid/rickroll3.mp4", "vid/rickroll4.mp4"]
+var videos = ["vid/rickroll.mp4", "vid/rickroll2.mp4", "vid/rickroll3.mp4", "vid/rickroll4.mp4"]
 
 function openYTLink(n) {
     ytWindow[n].style.visibility = 'visible';
-    ytWindow[n].style.zIndex = index.toString();
-    index++;
+    focus_window(ytWindow[n]);
 
     var video = ytWindow[n].querySelector('#yt');
 
@@ -15,7 +14,6 @@ function openYTLink(n) {
         video.volume = 0.07;
     }
 }
-
 
 function close_window(window) {
     window.style.visibility = 'hidden';
@@ -65,8 +63,7 @@ function min_window(window) {
 }
 
 function focus_window(window) {
-    if (window.style.zIndex == index - 1) return;
+    if (window.style.zIndex == windowIndex) return;
 
-    window.style.zIndex = index.toString();
-    index++;
+    window.style.zIndex = ++windowIndex;
 }

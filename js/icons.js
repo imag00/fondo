@@ -1,13 +1,16 @@
-document.addEventListener("click", function (evnt) {
+var iconIndex = 500;
+
+document.addEventListener("mousedown", function (evnt) {
     deselectAllIcons();
-    iconClick(evnt.target);
+    if (evnt.target.className == "icon")
+        iconClick(evnt.target);
 });
 
-function iconClick(element) {
-    if (element.className != "icon") return;
+function iconClick(icon) {
+    focusIcon(icon);
 
-    element.style.backgroundColor = '#008cff27';
-    element.style.border = '1px solid #008cff2c';
+    icon.style.backgroundColor = '#008cff27';
+    icon.style.border = '1px solid #008cff2c';
 }
 
 function deselectAllIcons() {
@@ -17,4 +20,10 @@ function deselectAllIcons() {
         icon.style.backgroundColor = '';
         icon.style.border = '1px solid transparent';
     }
+}
+
+function focusIcon(icon) {
+    if (icon.style.zIndex == iconIndex) return;
+
+    icon.style.zIndex = ++iconIndex;
 }
