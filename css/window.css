@@ -1,4 +1,4 @@
-.yt_window {
+.window {
     visibility: hidden;
     position: absolute;
     width: 700px;
@@ -13,7 +13,7 @@
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.yt_window #bar {
+.win_bar {
     width: 100%;
     height: 35px;
 
@@ -21,7 +21,7 @@
     background-color: white;
 }
 
-.yt_window #bar span {
+.win_bar span {
     user-select: none;
     font-size: 14px;
     line-height: 35px;
@@ -29,12 +29,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.yt_window #bar #bar_drag {
+.win_bar [bar_drag] {
     width: 100%;
     height: 100%;
 }
-
-.yt_window #bar #close_button {
+ 
+.win_bar [close_button]  {
     display: inline-block;
     width: 50px;
     height: 35px;
@@ -43,12 +43,12 @@
     background-image: url("../img/ventana/X.png");
 }
 
-.yt_window #bar #close_button:hover {
+.win_bar [close_button]:hover {
     background-color: red;
     background-image: url("../img/ventana/X_hover.png");
 }
 
-.yt_window #bar #max_button {
+.win_bar [max_button] {
     display: inline-block;
     width: 50px;
     height: 35px;
@@ -57,11 +57,7 @@
     background-image: url("../img/ventana/max.png");
 }
 
-.yt_window #bar #max_button:hover {
-    background-color: rgb(199, 199, 199);
-}
-
-.yt_window #bar #min_button {
+.win_bar [min_button] {
     visibility: hidden;
     display: inline-block;
     width: 50px;
@@ -71,11 +67,7 @@
     background-image: url("../img/ventana/min.png");
 }
 
-.yt_window #bar #min_button:hover {
-    background-color: rgb(199, 199, 199);
-}
-
-.yt_window #bar #hide_button {
+.win_bar [hide_button] {
     display: inline-block;
     width: 50px;
     height: 35px;
@@ -84,11 +76,11 @@
     background-image: url("../img/ventana/_.png");
 }
 
-.yt_window #bar #hide_button:hover {
+.win_bar [max_button]:hover, [min_button]:hover, [hide_button]:hover {
     background-color: rgb(199, 199, 199);
 }
 
-.yt_window #yt {
+.window video {
     position: relative;
     top: 35px;
     width: 100%;

@@ -1,104 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <title>Fondo de pantalla DAM</title>
+    <link rel="shortcut icon" href="#">
 
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/jesus.js"></script>
     <link rel="stylesheet" href="css/icons.css">
-    <script src="js/icons.js"></script>
     <link rel="stylesheet" href="css/pocion.css">
     <link rel="stylesheet" href="css/window.css">
-    <script src="js/window/window.js"></script>
-    <script src="js/drag.js"></script>
     <link rel="stylesheet" href="css/cicleButtons.css">
-
 </head>
 
-<body onmousedown="mouse(event, true)" onmouseup="mouse(event, false)" onmousemove="track_mouse(event)">
+<body>
     <div id="frame">
         <img src="img/main.png" class="unselectable">
 
-        <div class="yt_window" onmousedown="focus_window(this)">
-            <div id="bar">
-                <span>Papelera de reciclaje</span>
-                <div id="bar_drag" onmousedown="select_drag(event, this.parentNode.parentNode)"
-                    ondblclick="max_min_window_bar(this.parentNode.parentNode)"></div>
-                <div id="close_button" onclick="close_window(this.parentNode.parentNode)"></div>
-                <div id="max_button" onclick="max_window(this.parentNode.parentNode)"></div>
-                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)"
-                    onclick="min_window(this.parentNode.parentNode)"></div>
-                <div id="hide_button" onclick="hide_window(this.parentNode.parentNode)"></div>
+        <div class="window">
+            <div class="win_bar">
+                <span></span> <div bar_drag></div>
+                <div close_button></div> <div max_button></div>
+                <div min_button></div> <div hide_button></div>
             </div>
-            <video id="yt" src="" autoplay></video>
+            <video autoplay></video>
         </div>
 
-        <div class="yt_window" onmousedown="focus_window(this)">
-            <div id="bar">
-                <span>Visual Studio Code</span>
-                <div id="bar_drag" onmousedown="select_drag(event, this.parentNode.parentNode)"
-                    ondblclick="max_min_window_bar(this.parentNode.parentNode)"></div>
-                <div id="close_button" onclick="close_window(this.parentNode.parentNode)"></div>
-                <div id="max_button" onclick="max_window(this.parentNode.parentNode)"></div>
-                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)"
-                    onclick="min_window(this.parentNode.parentNode)"></div>
-                <div id="hide_button" onclick="hide_window(this.parentNode.parentNode)"></div>
-            </div>
-            <video id="yt" src="" autoplay></video>
-        </div>
-
-        <div class="yt_window" onmousedown="focus_window(this)">
-            <div id="bar">
-                <span>Google Chrome</span>
-                <div id="bar_drag" onmousedown="select_drag(event, this.parentNode.parentNode)"
-                    ondblclick="max_min_window_bar(this.parentNode.parentNode)"></div>
-                <div id="close_button" onclick="close_window(this.parentNode.parentNode)"></div>
-                <div id="max_button" onclick="max_window(this.parentNode.parentNode)"></div>
-                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)"
-                    onclick="min_window(this.parentNode.parentNode)"></div>
-                <div id="hide_button" onclick="hide_window(this.parentNode.parentNode)"></div>
-            </div>
-            <video id="yt" src="" autoplay></video>
-        </div>
-
-        <div class="yt_window" onmousedown="focus_window(this)">
-            <div id="bar">
-                <span>Apache Netbeans IDE 12.5</span>
-                <div id="bar_drag" onmousedown="select_drag(event, this.parentNode.parentNode)"
-                    ondblclick="max_min_window_bar(this.parentNode.parentNode)"></div>
-                <div id="close_button" onclick="close_window(this.parentNode.parentNode)"></div>
-                <div id="max_button" onclick="max_window(this.parentNode.parentNode)"></div>
-                <div id="min_button" width="700px" height="450px" top="calc(50% - 225px)" left="calc(50% - 350px)"
-                    onclick="min_window(this.parentNode.parentNode)"></div>
-                <div id="hide_button" onclick="hide_window(this.parentNode.parentNode)"></div>
-            </div>
-            <video id="yt" src="" autoplay></video>
-        </div>
-
-        <div class="icon" id="bin" onmousedown="select_drag(event, this)" ondblclick="openYTLink(0)">
-            <img class="unselectable" src="img/iconos/bin.png">
-        </div>
-        <div class="icon" id="vscode" onmousedown="select_drag(event, this)" ondblclick="openYTLink(1)">
-            <img class="unselectable" src="img/iconos/vscode.png">
-        </div>
-        <div class="icon" id="chrome" onmousedown="select_drag(event, this)" ondblclick="openYTLink(2)">
-            <img class="unselectable" src="img/iconos/chrome.png">
-        </div>
-        <div class="icon" id="netbeans" onmousedown="select_drag(event, this)" ondblclick="openYTLink(3)">
-            <img class="unselectable" src="img/iconos/netbeans.png">
-        </div>
+        <div class="icon" id="bin"> <img src="img/iconos/bin.png"> </div>
+        <div class="icon" id="vscode"> <img src="img/iconos/vscode.png"> </div>
+        <div class="icon" id="chrome"> <img src="img/iconos/chrome.png"> </div>
+        <div class="icon" id="netbeans"> <img src="img/iconos/netbeans.png"> </div>
 
         <img id="jesus" style="top: 68%; left: 9.5%; filter: contrast(85%);">
-        <img id="pocion" src="img/pocion.png" ondragstart="return false;">
+        <img id="pocion" src="img/pocion.png">
 
-        <div class="circle_button" id="x_button"><a href="webs/new.html"></a></div>
-        <div class="circle_button" id="photo_button"><a href="webs/arngren.html"></a></div>
-        <div class="circle_button" id="options_button"><a href="webs/cats.html"></a></div>
-        <div class="circle_button" id="left_button"><a href="webs/pointer.html"></a></div>
-        <div class="circle_button" id="right_button"><a href="webs/homer.html"></a></div>
+        <div class="circle_button" id="x_button"> <a href="webs/new.html"></a> </div>
+        <div class="circle_button" id="photo_button"> <a href="webs/arngren.html"></a> </div>
+        <div class="circle_button" id="options_button"> <a href="webs/cats.html"></a> </div>
+        <div class="circle_button" id="left_button"> <a href="webs/pointer.html"></a> </div>
+        <div class="circle_button" id="right_button"> <a href="webs/homer.html"></a> </div>
     </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/jesus.js"></script>
+    <script src="js/icons.js"></script>
+    <script src="js/window/window.js"></script>
+    <script src="js/drag.js"></script>
 </body>
 
 </html>

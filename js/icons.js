@@ -1,10 +1,21 @@
-var iconIndex = 500;
+let iconIndex = 500;
+let icons = document.getElementsByClassName("icon");
 
-document.addEventListener("mousedown", function (evnt) {
-    deselectAllIcons();
-    if (evnt.target.className == "icon")
-        iconClick(evnt.target);
-});
+    function loadIcons() {
+        
+
+        for (let i = 0; i < icons.length; i++) {
+            icons[i].addEventListener("dblclick", function() { openWindow(i) });
+            icons[i].addEventListener("mousedown", function() { select_drag(icons[i]) });
+        }
+
+        document.getElementById("frame").addEventListener("mousedown", function (evnt) {
+            deselectAllIcons();
+            if (evnt.target.className == "icon")
+                iconClick(evnt.target);
+        });
+    }
+
 
 function iconClick(icon) {
     focusIcon(icon);
@@ -14,9 +25,7 @@ function iconClick(icon) {
 }
 
 function deselectAllIcons() {
-    var icons = document.getElementsByClassName("icon");
-
-    for (var icon of icons) {
+    for (let icon of icons) {
         icon.style.backgroundColor = '';
         icon.style.border = '1px solid transparent';
     }

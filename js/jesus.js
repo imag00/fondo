@@ -1,12 +1,12 @@
 const timer = ms => new Promise(res => setTimeout(res, ms));
-var jesus;
-var hovering = false;
+let jesus;
+let hovering = false;
 
-var gifPos = 0;
+let gifPos = 0;
 const gifSpeed = 200;
-var actualGifSpeed = 200;
+let actualGifSpeed = 200;
 
-window.onload = function () {
+function loadJesus() {
     jesus = document.getElementById("jesus");
 
     jesus.src = "img/jesus/0.png";
@@ -19,8 +19,11 @@ window.onload = function () {
 async function jesusMove() {
     while (hovering) {
         jesus.src = 'img/jesus/' + gifPos + '.png';
-        gifPos += (gifPos < 7) ? 1 : -7;
-        await timer(actualGifSpeed);
+
+        if (actualGifSpeed >= 0) gifPos += (gifPos < 7) ? 1 : -7;
+        else gifPos += (gifPos > 0) ? -1 : 7;
+
+        await timer(Math.abs(actualGifSpeed));
     }
 }
 
@@ -33,17 +36,24 @@ function jesusMouseLeave() {
     hovering = false;
 }
 
+let flip = false;
 function jesusMouseChangeSpeed() {
     actualGifSpeed -= 45;
 
-    var contrast = parseInt(jesus.style.filter.substring(9, 12));
-    contrast += 250 - 1.3 * actualGifSpeed;
-
-    jesus.style.filter = "contrast(" + contrast + "%)";
-
-    if (actualGifSpeed <= 0) {
+    let contrast = parseInt(jesus.style.filter.substring(9, 12));
+    contrast += Math.sign(actualGifSpeed) * 300 - 1.3 * actualGifSpeed;
+    
+    if (flip) {
         actualGifSpeed = gifSpeed;
-        jesus.style.filter = "contrast(85%)";
+        contrast = 85;
+        flip = false;
     }
 
+    if (actualGifSpeed <= -gifSpeed) {
+        actualGifSpeed = -gifSpeed;
+        contrast = 85;
+        flip = true;
+    }
+
+    jesus.style.filter = "contrast(" + contrast + "%)";
 }

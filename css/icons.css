@@ -5,6 +5,11 @@
     border: 1px solid transparent;
 }
 
+.icon img {
+    user-select: none;
+    pointer-events: none;
+}
+
 .icon:hover {
     background-color: #008cff1e;
 }
