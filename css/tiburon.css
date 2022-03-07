@@ -1,0 +1,39 @@
+#tiburon {
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#img_tiburon, #img_boca {
+    top: 660px;
+    left: 936px;
+}
+
+#gorro_tiburon {
+    top: 640px;
+    left: 1120px;
+}
+
+#img_tiburon {
+    pointer-events: all;
+    clip-path: polygon(1% 15%, 5% 34%, 18% 37%, 15% 48%, 14% 54%, 20% 53%, 25% 49%, 30% 49%, 34% 53%, 37% 59%, 36% 64%, 30% 67%, 27% 74%, 28% 80%, 24% 78%, 16% 80%, 13% 86%, 13% 94%, 16% 99%, 100% 100%, 100% 92%, 100% 84%, 98% 79%, 95% 74%, 98% 71%, 94% 66%, 89% 66%, 87% 61%, 86% 58%, 82% 56%, 78% 56%, 75% 57%, 75% 52%, 68% 48%, 66% 45%, 62% 39%, 65% 34%, 68% 29%, 71% 25%, 66% 22%, 62% 20%, 58% 21%, 54% 19%, 50% 16%, 43% 9%, 37% 5%, 31% 0%, 0% 0%);
+}
+
+#img_boca {
+    z-index: 12;
+    pointer-events: none;
+}
+
+#img_mano {
+    z-index: 11;
+    top: 678px;
+    left: 960px;
+    pointer-events: all;
+    transition: left 0.3s;
+    pointer-events: none;
+}
+
+#img_laser {
+    z-index: 150;
+}

@@ -3,4 +3,6 @@ window.onload = function () {
     loadWindow();
     loadDrag();
     loadJesus();
+    loadPerro();
+    loadTiburon();
 }

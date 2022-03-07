@@ -1,0 +1,20 @@
+#perro {
+    z-index: 0;
+    top: 285px;
+    left: 440px;
+    width: 187px;
+    height: 157px;
+    background-image: url("../img/perro/uwu.png");
+    transition: background-image 0.5s;
+}
+
+#perro:hover {
+    background-image: url("../img/perro/owo.png");    
+}
+
+#fuet {
+    z-index: 1;
+    transform: rotate(-45deg);
+    top: 374px;
+    left: 72px;
+}
