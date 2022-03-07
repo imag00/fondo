@@ -1,0 +1,13 @@
+3: perro
+4: fuet
+5: jesus
+6: pocion
+
+
+10-12:  tiburon
+
+500: botones
+
+1 000+: iconoss
+
+1 000 000+: ventanas

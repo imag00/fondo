@@ -1,4 +1,4 @@
-let windowIndex = 100000;
+let windowIndex = 1000000;
 
 let windows = document.getElementsByClassName("window");
 

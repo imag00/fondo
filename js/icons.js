@@ -1,4 +1,4 @@
-let iconIndex = 500;
+let iconIndex = 1000;
 let icons = document.getElementsByClassName("icon");
 
     function loadIcons() {

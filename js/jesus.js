@@ -3,13 +3,13 @@ let jesus;
 let hovering = false;
 
 let gifPos = 0;
-const gifSpeed = 200;
-let actualGifSpeed = 200;
+const gifSpeed = 110;
+let actualGifSpeed = 110;
 
 function loadJesus() {
     jesus = document.getElementById("jesus");
 
-    jesus.src = "img/jesus/0.png";
+    jesus.src = "img/jesus/0.gif";
 
     jesus.addEventListener("mouseenter", jesusMouseEnter);
     jesus.addEventListener("mouseleave", jesusMouseLeave);
@@ -18,10 +18,10 @@ function loadJesus() {
 
 async function jesusMove() {
     while (hovering) {
-        jesus.src = 'img/jesus/' + gifPos + '.png';
+        jesus.src = 'img/jesus/' + gifPos + '.gif';
 
-        if (actualGifSpeed >= 0) gifPos += (gifPos < 7) ? 1 : -7;
-        else gifPos += (gifPos > 0) ? -1 : 7;
+        if (actualGifSpeed >= 0) gifPos += (gifPos < 33) ? 1 : -33;
+        else gifPos += (gifPos > 0) ? -1 : 33;
 
         await timer(Math.abs(actualGifSpeed));
     }
@@ -38,10 +38,10 @@ function jesusMouseLeave() {
 
 let flip = false;
 function jesusMouseChangeSpeed() {
-    actualGifSpeed -= 45;
+    actualGifSpeed -= 25;
 
     let contrast = parseInt(jesus.style.filter.substring(9, 12));
-    contrast += Math.sign(actualGifSpeed) * 300 - 1.3 * actualGifSpeed;
+    contrast += Math.sign(actualGifSpeed) * 200 - 1.5 * actualGifSpeed;
     
     if (flip) {
         actualGifSpeed = gifSpeed;
