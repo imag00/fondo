@@ -1,6 +1,7 @@
 const timer = ms => new Promise(res => setTimeout(res, ms));
 let jesus;
 let hovering = false;
+let dead;
 
 let gifPos = 0;
 const gifSpeed = 110;
@@ -17,6 +18,8 @@ function loadJesus() {
 };
 
 async function jesusMove() {
+    if (dead) return;
+
     while (hovering) {
         jesus.src = 'img/jesus/' + gifPos + '.gif';
 
@@ -38,6 +41,7 @@ function jesusMouseLeave() {
 
 let flip = false;
 function jesusMouseChangeSpeed() {
+    if (dead) return;
     actualGifSpeed -= 25;
 
     let contrast = parseInt(jesus.style.filter.substring(9, 12));
@@ -56,4 +60,20 @@ function jesusMouseChangeSpeed() {
     }
 
     jesus.style.filter = "contrast(" + contrast + "%)";
+}
+
+function jesusDie() {
+    dead = true;
+    
+    jesus.src = "img/jesus/jesus_muerto.png";
+    jesus.style.filter = "contrast(85%)";
+
+    jesus.style.transition = "transform 0.045s";
+    jesus.style.transform = "rotate(-90deg)";
+    
+    jesus.style.width = "90px";
+    jesus.style.top = "78%";
+    jesus.style.left = "8%";
+    
+    jesus.setAttribute("dead", "");
 }

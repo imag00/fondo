@@ -27,11 +27,12 @@
 
 #img_mano {
     z-index: 11;
-    top: 678px;
-    left: 960px;
+    top: 660px;
+    left: 905px;
     pointer-events: all;
     transition: left 0.3s;
     pointer-events: none;
+    transform: none;
 }
 
 #img_laser {
