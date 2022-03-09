@@ -36,7 +36,7 @@ function movePerro(dir) {
         perro.style.left = perro.offsetLeft + step + "px";
 
     } else { //abajo
-        if (perro.offsetTop >= 550) return;
+        if (perro.offsetTop >= 500) return;
 
         perro.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
         perro.style.top = perro.offsetTop + step + "px";

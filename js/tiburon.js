@@ -24,6 +24,7 @@ function fireGun() {
     disparable = false;
 
     fireAnim();
+    fireSound();
     spawnBullet();
     moveBullet();
 }
@@ -46,9 +47,14 @@ async function fireAnim() {
 
     await timer(30);
     mano.src = "img/tiburon/mano.png";
-    await timer(150);
+    await timer(170);
     mano.style.transition = "left 0.3s";
     disparable = true;
+}
+
+function fireSound() {
+    let audio = new Audio('audio/gun.mp3');
+    audio.play();
 }
 
 function spawnBullet() {
@@ -69,7 +75,7 @@ async function moveBullet() {
     let active = true;
 
     while(active) {
-        bullet.style.left = bullet.offsetLeft - 50 + "px";
+        bullet.style.left = bullet.offsetLeft - 55 + "px";
         await timer(13);
 
         if(bullet.offsetLeft < 230 && !jesus.hasAttribute("dead")) {

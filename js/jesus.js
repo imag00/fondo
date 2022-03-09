@@ -1,4 +1,3 @@
-const timer = ms => new Promise(res => setTimeout(res, ms));
 let jesus;
 let hovering = false;
 let dead;
@@ -31,11 +30,15 @@ async function jesusMove() {
 }
 
 function jesusMouseEnter() {
+    if (dead) return;
+
     hovering = true;
     jesusMove();
 }
 
 function jesusMouseLeave() {
+    if (dead) return;
+
     hovering = false;
 }
 
@@ -63,8 +66,13 @@ function jesusMouseChangeSpeed() {
 }
 
 function jesusDie() {
+    hovering = false;
     dead = true;
-    
+
+    let audio = new Audio('audio/hitmarker.mp3');
+    audio.play();
+    hitmarker();   
+
     jesus.src = "img/jesus/jesus_muerto.png";
     jesus.style.filter = "contrast(85%)";
 
@@ -74,6 +82,25 @@ function jesusDie() {
     jesus.style.width = "90px";
     jesus.style.top = "78%";
     jesus.style.left = "8%";
+
+
     
     jesus.setAttribute("dead", "");
+    
+}
+
+async function hitmarker() {
+    let hm = document.createElement("img");
+    hm.src = "img/jesus/hitmarker.png";
+
+    hm.style.zIndex = 13;
+    hm.style.width = "35px";
+    hm.style.left = "190px";
+    hm.style.top = "660px";
+
+    document.getElementById("frame").appendChild(hm);
+
+    await timer(80);
+
+    document.getElementById("frame").removeChild(hm);
 }
