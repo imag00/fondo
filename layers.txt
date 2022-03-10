@@ -10,6 +10,6 @@
 
 500: botones
 
-1 000+: iconoss
+1 000+: iconos
 
 1 000 000+: ventanas
