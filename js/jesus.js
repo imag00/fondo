@@ -94,13 +94,13 @@ async function hitmarker() {
     hm.src = "img/jesus/hitmarker.png";
 
     hm.style.zIndex = 13;
-    hm.style.width = "35px";
-    hm.style.left = "190px";
-    hm.style.top = "660px";
+    hm.style.width = "37px";
+    hm.style.left = "180px";
+    hm.style.top = "665px";
 
     document.getElementById("frame").appendChild(hm);
 
-    await timer(80);
+    await timer(215);
 
     document.getElementById("frame").removeChild(hm);
 }

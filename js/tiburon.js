@@ -58,6 +58,7 @@ function fireSound() {
 }
 
 function spawnBullet() {
+
     let bullet = document.createElement("img");
     bullet.id = "bullet";
     bullet.src = "img/tiburon/bala.png";
@@ -69,6 +70,7 @@ function spawnBullet() {
 }
 
 async function moveBullet() {
+
     let bullet = document.getElementById("bullet");
 
     let jesus = document.getElementById("jesus");

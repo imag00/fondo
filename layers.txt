@@ -3,8 +3,9 @@
 5: jesus
 6: pocion
 
-
+9: juan
 10-12:  tiburon
+
 13: bala
 
 500: botones
