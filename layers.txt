@@ -4,7 +4,7 @@
 6: pocion
 
 9: juan
-10-12:  tiburon
+10-12: tiburon
 
 13: bala
 
@@ -13,3 +13,4 @@
 1 000+: iconos
 
 1 000 000+: ventanas
+999 999 999: juan screen

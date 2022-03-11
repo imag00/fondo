@@ -52,9 +52,10 @@
     top: 610px;
     left: 995px;
     opacity: 0%;
+    transition: opacity 1s;
 }
 
-#juan:hover {
-    background-color: red;    
+#juan_screen {
+    opacity: 0%;
+    pointer-events: none;
 }
-

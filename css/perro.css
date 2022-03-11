@@ -5,11 +5,15 @@
     width: 187px;
     height: 157px;
     background-image: url("../img/perro/uwu.png");
-    transition: background-image 0.5s;
+    clip-path: polygon(62% 96%, 33% 62%, 26% 75%, 8% 68%, 7% 56%, 1% 39%, 0% 29%, 33% 0%, 100% 51%, 89% 78%);
 }
 
-#perro:hover {
-    background-image: url("../img/perro/owo.png");    
+#uwu_perro {
+    transition: opacity 0.5s;
+}
+
+#uwu_perro:hover {
+    opacity: 0%;
 }
 
 #fuet {
