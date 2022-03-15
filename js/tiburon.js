@@ -13,7 +13,6 @@ function loadTiburon() {
     juan.addEventListener("mouseenter", showJuan);
     juan.addEventListener("mouseleave", hideJuan);
     juan_screen.addEventListener("transitionend", function() { 
-        console.log(window.getComputedStyle(juan_screen).getPropertyValue("opacity") == 0)
         if(window.getComputedStyle(juan_screen).getPropertyValue("opacity") == 0)
             document.getElementById("frame").removeChild(juan_screen);           
     });
@@ -86,7 +85,7 @@ async function moveBullet() {
 
     while (active) {
         bullet.style.left = bullet.offsetLeft - 55 + "px";
-        await timer(13);
+        await timer(13.33);
 
         if (bullet.offsetLeft < 230 && !jesus.hasAttribute("dead")) {
             active = false;
@@ -120,7 +119,7 @@ function showJuan() {
         if (!document.contains(juan_screen))
             document.getElementById("frame").appendChild(juan_screen);
 
-        await timer(0);
+        await timer(13.33);
         
         juan_screen.style.transition = "opacity 6.5s";
         juan_screen.style.opacity = "100%";       

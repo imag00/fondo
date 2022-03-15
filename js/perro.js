@@ -1,45 +1,54 @@
 let perro;
 let fuet;
-let step = 7;
+let step = 5;
 let hoveringFuet;
 
 function loadPerro() {
     perro = document.getElementById("perro");
     fuet = document.getElementById("fuet");
 
-    fuet.addEventListener("wheel", function (e) { movePerroWheel(e); });
+    document.addEventListener("keydown", function (e) { perroArrows(e); });
+    document.addEventListener("keyup", function (e) { perroArrowsUp(e); });
 
-    //fuet.addEventListener("mouseenter", function () { hoveringFuet = true; });
-    //fuet.addEventListener("mouseleave", function () { hoveringFuet = false; });
-    document.addEventListener("keydown", function (e) { movePerroArrows(e); });
+    perroMove();
 }
 
-function movePerroWheel(e) {
-    movePerro(e.deltaY);
-}
 
-function movePerroArrows(e) {
-    //if (!hoveringFuet) return;
+let dir = [0, 0];
 
-    if (e.key == "ArrowUp" || e.key == "ArrowRight")
-        movePerro(-1);
-    else if (e.key == "ArrowDown" || e.key == "ArrowLeft")
-        movePerro(1);
-}
+async function perroMove() {
+    while (true) {
+        await timer(13.33);
 
-function movePerro(dir) {
-    if (dir < 0) { //arriba
-        if (perro.offsetTop <= -25) return;
+        if (perro.offsetTop <= -25)
+            dir[0] = 0;
 
-        perro.style.transform = "matrix(6.12323e-17, 1, 1, -6.12323e-17, 0, 0)";
-        perro.style.top = perro.offsetTop - step + "px";
-        perro.style.left = perro.offsetLeft + step + "px";
+        if (perro.offsetTop >= 500)
+            dir[1] = 0;
 
-    } else { //abajo
-        if (perro.offsetTop >= 500) return;
+        let direction = dir[0] - dir[1];
 
-        perro.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
-        perro.style.top = perro.offsetTop + step + "px";
-        perro.style.left = perro.offsetLeft - step + "px";
+        perro.style.top = perro.offsetTop - step * direction + "px";
+        perro.style.left = perro.offsetLeft + step * direction + "px";
+
+        if (direction == 1)
+            perro.style.transform = "matrix(6.12323e-17, 1, 1, -6.12323e-17, 0, 0)";
+        else if (direction == -1)
+            perro.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     }
+
+}
+
+function perroArrows(e) {
+    if (e.key == "ArrowUp" || e.key == "ArrowRight")
+        dir[0] = 1;
+    else if (e.key == "ArrowDown" || e.key == "ArrowLeft")
+        dir[1] = 1;
+}
+
+function perroArrowsUp(e) {
+    if (e.key == "ArrowUp" || e.key == "ArrowRight")
+        dir[0] = 0;
+    else if (e.key == "ArrowDown" || e.key == "ArrowLeft")
+        dir[1] = 0;
 }
