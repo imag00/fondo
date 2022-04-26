@@ -7,6 +7,7 @@
 10-12: tiburon
 
 13: bala
+15: kala
 
 500: botones
 
